@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "speedypanther"
+version = "0.1.0"
+description = "A repo that contains different Speech Processing projects and applications."
+authors = ["Jannis Spiekermann <janniss@hotmail.de>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+numpy = "^1.24.2"
+matplotlib = "^3.7.1"
+ipywidgets = "^8.0.6"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2"
+black = "^22.12.0"
+ipykernel = "^6.21.1"
+ipython = "^8.9.0"
+jupyterlab = "^3.6.1"
+isort = "^5.10.1"
+pylint = "^2.15.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.black]
+line-length = 88
+preview = true
