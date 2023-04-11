@@ -53,3 +53,13 @@ def generate_noise(sample_rate: int = 44_100, start_time: float = 0.0, end_time:
     timesteps = np.arange(start_time, end_time, period)
     samples = np.random.randn(*(timesteps.shape))
     return timesteps, samples
+
+
+def generate_timesteps(input_audio: np.ndarray, sample_rate: int = 44_100) -> np.ndarray:
+    """
+    Generate the timesteps for an audiosignal according to its length.
+    This can be used for plotting in the time domain.
+    """
+    input_len = input_audio.shape[0]
+    end_time = input_len / sample_rate
+    return np.linspace(0.0, end_time, input_len)
