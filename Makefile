@@ -2,7 +2,7 @@ PACKAGE_DIR=speedypanther
 TEST_DIR = tests
 
 test:
-	poetry run pytest -s ${TEST_DIR}/
+	poetry run pytest -s ${TEST_DIR}/ -vvv
 
 format:
 	poetry run black ${PACKAGE_DIR} ${TEST_DIR}
