@@ -24,7 +24,7 @@ def fourier_analysis(
     min_freq = 1 / duration
     # This is the maximum frequency that can be sampled.
     nyquist_freq = sample_rate / 2
-    freq_bins = np.arange(min_freq, nyquist_freq + min_freq, min_freq)
+    freq_bins = np.arange(min_freq, nyquist_freq, min_freq)
 
     freq_ampls = []
     for freq in freq_bins:
@@ -37,3 +37,12 @@ def fourier_analysis(
         freq_ampls.append(freq_ampl)
 
     return np.array(freq_bins), np.array(freq_ampls)
+
+
+def dft(sample_window: np.ndarray):
+    n = sample_window.shape[0]
+    t = np.arange(0, n)
+
+    out = [(sample_window * np.exp(- 2j * np.pi * t * k / n)).sum() for k in range(n)]
+
+    return np.array(out)
