@@ -43,6 +43,6 @@ def dft(sample_window: np.ndarray):
     n = sample_window.shape[0]
     t = np.arange(0, n)
 
-    out = [(sample_window * np.exp(- 2j * np.pi * t * k / n)).sum() for k in range(n)]
+    out = [(sample_window * np.exp(-2j * np.pi * t * k / n)).sum() for k in range(n)]
 
     return np.array(out)

@@ -14,3 +14,6 @@ checkformat:
 
 lint:
 	poetry run pylint ${PACKAGE_DIR} ${TEST_DIR}
+
+jupyter:
+	poetry run jupyter lab
