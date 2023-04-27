@@ -39,7 +39,7 @@ def fourier_analysis(
     return np.array(freq_bins), np.array(freq_ampls)
 
 
-def dft(sample_window: np.ndarray):
+def dft(sample_window: np.ndarray) -> np.ndarray:
     n = sample_window.shape[0]
     t = np.arange(0, n)
 

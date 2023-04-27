@@ -16,6 +16,7 @@ class TimitObject:
     sample_rate: int
     num_frames: int
     transcript: str
+    # The timings are stored as tuples of (phone_type, start, end).
     word_timings: List[Tuple[str, int, int]]
     phone_timings: List[Tuple[str, int, int]]
 
@@ -30,11 +31,11 @@ def read_wav(path: str, channels: int = 1) -> np.ndarray:
     return arr, sample_rate
 
 
-def read_transcript(path: str) -> str:
+def read_transcript(path: str) -> Tuple[str, int]:
     with open(path) as f:
         transcript = f.read().strip()
         time = transcript.split()[:2]
-        num_frames = time[1]
+        num_frames = int(time[1])
         transcript = transcript.lstrip(" ".join(time)).lstrip()
 
     return transcript, num_frames
@@ -49,7 +50,7 @@ def read_timings(path: str) -> List[Tuple[str, int, int]]:
     with open(path) as f:
         for line in f:
             start, end, segment = line.split()
-            timings.append((segment, start, end))
+            timings.append((segment, int(start), int(end)))
 
     return timings
 
